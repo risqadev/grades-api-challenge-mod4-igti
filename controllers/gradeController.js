@@ -27,7 +27,11 @@ const findAll = async (req, res) => {
   try {
     const data = await studentModel.find(condition);
 
-    data.id = data._id;
+    data.map(item => {
+      item.id = item._id;
+
+      return item
+    })
 
     res.send(data);
 
