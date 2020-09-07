@@ -27,13 +27,7 @@ const findAll = async (req, res) => {
   try {
     const data = await studentModel.find(condition);
 
-    const newData = data.map(item => {
-      item.id = item._id;
-
-      return item
-    })
-
-    res.send(newData);
+    res.send(data);
 
     logger.info(`GET /grade`);
   } catch (error) {
