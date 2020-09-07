@@ -3,11 +3,11 @@ import controller from '../controllers/gradeController.js';
 
 const app = express();
 
-app.post('/', controller.create);
-app.get('/', controller.findAll);
-app.get('/:id', controller.findOne);
-app.put('/:id', controller.update);
-app.delete('/:id', controller.remove);
-app.delete('/', controller.removeAll);
+app.post('/grade/', controller.create);
+app.get('/grade/', controller.findAll);
+app.get('/grade/:id', controller.findOne);
+app.put('/grade/:id', controller.update);
+app.delete('/grade/:id', controller.remove);
+app.delete('/grade/', controller.removeAll);
 
 export { app as gradeRouter };

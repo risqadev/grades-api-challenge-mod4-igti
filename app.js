@@ -26,11 +26,9 @@ app.use(
   cors()
 );
 
-app.get('/', (_req, res) => {
-  res.send('API em execucao');
-});
+app.use('/', gradeRouter);
 
-app.use('/grade', gradeRouter);
+// app.use('/grade', gradeRouter);
 
 app.listen(process.env.PORT || 8081, () => {
   logger.info('API Started!');
