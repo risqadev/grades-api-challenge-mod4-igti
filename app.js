@@ -23,7 +23,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
-  cors()
+  cors({
+    origin: 'http://localhost',
+    origin: 'https://grades-frontend-rscamacho.herokuapp.com',
+  })
 );
 
 app.use('/', gradeRouter);
