@@ -5,7 +5,7 @@ const create = async (req, res) => {
   try {
     const student = await studentModel(req.body).save();
 
-    res.status(200).send(student);
+    res.send(student);
 
     logger.info(`POST /grade - ${JSON.stringify()}`);
   } catch (error) {
@@ -27,7 +27,9 @@ const findAll = async (req, res) => {
   try {
     const data = await studentModel.find(condition);
 
-    res.status(200).send(data);
+    data.id = data._id;
+
+    res.send(data);
 
     logger.info(`GET /grade`);
   } catch (error) {
@@ -44,7 +46,7 @@ const findOne = async (req, res) => {
   try {
     const data = await studentModel.findById({ _id: id });
 
-    res.status(200).send(data);
+    res.send(data);
 
     logger.info(`GET /grade - ${id}`);
   } catch (error) {
@@ -65,7 +67,7 @@ const update = async (req, res) => {
   try {
     const studentUpdate = await studentModel.findByIdAndUpdate({ _id: id }, req.body, { new: true });
 
-    res.status(200).send(studentUpdate);
+    res.send(studentUpdate);
 
     logger.info(`PUT /grade - ${id} - ${JSON.stringify(req.body)}`);
   } catch (error) {
